@@ -60,6 +60,7 @@ DADO que o usuário está na tela
 E deixa CFOP ou Grupo em branco
 QUANDO tentar importar XML
 ENTÃO deve exibir mensagens de “campo obrigatório”.
+
 | **Critérios de aceitação**                                      |
 | :------------------------------------------------------------ |
 |Campos obrigatórios validados.|
