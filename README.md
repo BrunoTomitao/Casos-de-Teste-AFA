@@ -113,7 +113,7 @@ ENTÃO a venda deve aparecer no Livro Caixa.
 ### Caso de Teste 02: Produto sem estoque
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C02-CT02	 |Sistema deve impedir venda sem estoque.|
+|C02-CT02	 | Sistema deve impedir venda sem estoque.|
 
 | **Pré-condições**                                             |
 | :------------------------------------------------------------ |
@@ -132,7 +132,7 @@ ENTÃO deve exibir mensagem “Estoque insuficiente”.
 ### Caso de Teste 03: Desconto total bloqueado quando há desconto por item
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C02-CT03	 |Sistema não deve permitir desconto duplo.|
+|C02-CT03	 | Sistema não deve permitir desconto duplo.|
 
 | **Pré-condições**                                             |
 | :------------------------------------------------------------ |
@@ -144,29 +144,28 @@ DADO que a venda possui produto com desconto
 QUANDO tentar aplicar desconto geral
 ENTÃO deve bloquear com alerta.
 
-Critérios de Aceitação
 | **Critérios de Aceitação**                                             |
 | :------------------------------------------------------------ |
-
-Desconto total bloqueado.
+|Desconto total bloqueado.|
 
 ### Caso de Teste 04: Finalizar venda sem selecionar tipo de documento
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C02-CT04	Sistema deve impedir finalização sem forma de pagamento.|
+|C02-CT04	 | Sistema deve impedir finalização sem forma de pagamento.|
+
 | **Pré-condições**                                             |
+| :------------------------------------------------------------ |
+|Venda pronta para finalizar.|
 
-Venda pronta para finalizar.
-
-| ------- | ---------------------------------------------------------------- |
 | **Passos**                                                        |
-| ------- | ---------------------------------------------------------------- |
+| :------------------------------------------------------------ |
 DADO que o usuário está na tela final
 QUANDO clicar em “Salvar” sem escolher tipo de documento
 ENTÃO deve exibir erro.
-Critérios de Aceitação
 
-Finalização bloqueada.
+| **Critérios de Aceitação**                                             |
+| :------------------------------------------------------------ |
+|Finalização bloqueada.|
 
 -------------------------------------------
 ## ✅ CENÁRIO 03 – COMPRA POR FORNECEDOR
@@ -174,41 +173,42 @@ Finalização bloqueada.
 ### Caso de Teste 01: Compra concluída com sucesso
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C03-CT01	Compra lançada, estoque atualizado e caixa alimentado.|
+|C03-CT01	 | Compra lançada, estoque atualizado e caixa alimentado.|
+
 | **Pré-condições**                                             |
+| :------------------------------------------------------------ |
+|Fornecedor cadastrado.|
+|Produto cadastrado.|
 
-Fornecedor cadastrado.
-
-Produto cadastrado.
-
-| ------- | ---------------------------------------------------------------- |
 | **Passos**                                                        |
-| ------- | ---------------------------------------------------------------- |
+| :------------------------------------------------------------ |
 DADO que o usuário cria nova compra
 E adiciona produtos
 QUANDO finalizar compra
 ENTÃO estoque deve ser alimentado.
-Critérios de Aceitação
 
-Compra CONFIRMADA.
+| **Critérios de Aceitação**                                             |
+| :------------------------------------------------------------ |
+|Compra CONFIRMADA.|
 
 ### Caso de Teste 02: Fornecedor inexistente
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C03-CT02	Deve impedir compra sem fornecedor.|
+|C03-CT02	 | Deve impedir compra sem fornecedor.|
+
 | **Pré-condições**                                             |
+| :------------------------------------------------------------ |
+|Nenhuma.|
 
-Nenhuma.
-
-| ------- | ---------------------------------------------------------------- |
 | **Passos**                                                        |
-| ------- | ---------------------------------------------------------------- |
+| :------------------------------------------------------------ |
 DADO que usuário tenta criar compra sem fornecedor
 QUANDO clicar em “Salvar”
 ENTÃO sistema deve bloquear.
-Critérios de Aceitação
 
-Mensagem “Fornecedor obrigatório”.
+| **Critérios de Aceitação**                                             |
+| :------------------------------------------------------------ |
+|Mensagem “Fornecedor obrigatório”.|
 
 ### Caso de Teste 03: Tipo de documento inválido para compra a prazo
 | ID       | Descrição                                                        |
