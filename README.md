@@ -5,8 +5,8 @@
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C01-CT01	 | Importação de XML válido alimenta estoque corretamente.|
-| **Pré-condições**                                             |
 | :------------------------------------------------------------ |
+| **Pré-condições**                                             |
 |          | - XML válido.|
 |          | - Produtos existentes na nota.|
 
