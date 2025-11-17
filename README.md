@@ -7,8 +7,8 @@
 |C01-CT01	 | Importação de XML válido alimenta estoque corretamente.         |
 
 | **Pré-condições**                                             |
-| ------- | - XML válido.                                       |
-| ------- | - Produtos existentes na nota.                      |
+| 1 | - XML válido.                                       |
+| 2 | - Produtos existentes na nota.                      |
 
 | **Passos**                                                                 |
 | ------- | ---------------------------------------------------------------- |
