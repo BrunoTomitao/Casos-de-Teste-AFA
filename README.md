@@ -12,7 +12,7 @@
 | - Produtos existentes na nota.                      |
 
 | **Passos**                                                                 |
-| ------- | ---------------------------------------------------------------- |
+| :------------------------------------------------------------ |
 DADO que o usuário acessa Pedidos > Importar XML de Compra
 E preenche CFOP, Grupo e ST Entrada
 E importa um XML válido
@@ -30,10 +30,11 @@ Produtos lançados no estoque.
 |C01-CT02	 | Sistema deve recusar XML inválido.|
 
 | **Pré-condições**                                             |
+| :------------------------------------------------------------ |
 | ------- | - XML com estrutura incorreta.|
 
 | **Passos**                                                        |
-| ------- | ---------------------------------------------------------------- |
+| :------------------------------------------------------------ |
 DADO que o usuário acessa a tela de importação
 E seleciona um XML corrompido
 QUANDO clicar em “Importar XML”
