@@ -1,245 +1,342 @@
-# 🟦 CENÁRIO 01: Inventário de Estoque
-Caso de Teste 01: Importação de XML válida e geração da compra.
+-------------------------------------------
+✅ CENÁRIO 01 – INVENTÁRIO DE ESTOQUE
+-------------------------------------------
+Caso de Teste 01: Importar XML válido e gerar compra
 ID	Descrição
-C01-CT01	Importar um XML válido e gerar a compra com entrada correta no estoque.
+C01-CT01	Importação de XML válido alimenta estoque corretamente.
 Pré-condições
-O arquivo XML deve ser válido e conter produtos corretamente.
+
+XML válido.
+
+Produtos existentes na nota.
+
+Passos
 Passos
 DADO que o usuário acessa Pedidos > Importar XML de Compra
 E preenche CFOP, Grupo e ST Entrada
-E seleciona um XML válido ao clicar em “Importar XML”
+E importa um XML válido
 QUANDO clicar em “Gerar Compra” e depois “Finalizar”
-ENTÃO a compra deve ser confirmada e os produtos inseridos no estoque
-Critérios de aceitação
-A compra deve aparecer com status CONFIRMADA e o estoque atualizado.
-Teste passou com sucesso.
-Caso de Teste 02: Tentativa de importar XML inválido.
+ENTÃO o estoque deve ser atualizado e a compra aparecer como “CONFIRMADA”.
+Critérios de Aceitação
+
+Compra confirmada.
+
+Produtos lançados no estoque.
+
+Caso de Teste 02: Importar XML inválido
 ID	Descrição
-C01-CT02	O sistema deve rejeitar arquivos XML inválidos ou corrompidos.
+C01-CT02	Sistema deve recusar XML inválido.
 Pré-condições
-O arquivo XML está corrompido ou com estrutura incompatível.
+
+XML com estrutura incorreta.
+
 Passos
-DADO que o usuário acessa a tela de importação de XML
-E seleciona um XML inválido
-QUANDO clicar em “Importar XML”
-ENTÃO deve ser exibida uma mensagem de erro adequado
-Critérios de aceitação
-A importação deve ser bloqueada e o XML não pode ser processado.
-Teste passou com sucesso.
-Caso de Teste 03: Tentativa de importação sem preencher CFOP ou Grupo.
-ID	Descrição
-C01-CT03	A importação deve ser bloqueada se campos obrigatórios estiverem em branco.
-Pré-condições
-Nenhuma.
 Passos
 DADO que o usuário acessa a tela de importação
+E seleciona um XML corrompido
+QUANDO clicar em “Importar XML”
+ENTÃO deve aparecer erro e bloqueio da ação.
+Critérios de Aceitação
+
+Mensagem clara de erro.
+
+Não deve permitir gerar compra.
+
+Caso de Teste 03: Falta de preenchimento obrigatório
+ID	Descrição
+C01-CT03	Bloqueio da importação sem CFOP ou Grupo.
+Pré-condições
+
+Nenhuma.
+
+Passos
+Passos
+DADO que o usuário está na tela
 E deixa CFOP ou Grupo em branco
-QUANDO tentar clicar em “Importar XML”
-ENTÃO o sistema deve exibir mensagens de “campo obrigatório”
-Critérios de aceitação
-A importação só pode ocorrer com todos os campos preenchidos.
-Teste passou com sucesso.
-Caso de Teste 04: Geração de compra sem confirmação de entrada.
+QUANDO tentar importar XML
+ENTÃO deve exibir mensagens de “campo obrigatório”.
+Critérios de Aceitação
+
+Campos obrigatórios validados.
+
+Caso de Teste 04: Gerar compra mas não confirmar entrada
 ID	Descrição
-C01-CT04	A compra deve permanecer pendente caso o usuário não confirme a entrada.
+C01-CT04	Compra deve permanecer pendente sem confirmação.
 Pré-condições
-Um XML válido foi importado e gerou uma compra.
+
+XML válido importado.
+
 Passos
-DADO que o usuário gerou a compra após a importação do XML
-QUANDO sair da tela sem mudar o status para “CONFIRMADA”
-ENTÃO a compra deve permanecer pendente e o estoque não deve ser alterado
-Critérios de aceitação
-Estoque inalterado e compra marcada como pendente.
-Teste passou com sucesso.
-# 🟦 CENÁRIO 02: Processamento de Venda (PDV)
-Caso de Teste 01: Realização de venda completa com sucesso.
-ID	Descrição
-C02-CT01	Registrar uma venda completa com produtos, finalização e caixa.
-Pré-condições
-Cliente, funcionário e produtos devem estar cadastrados.
 Passos
-DADO que o usuário acessa o módulo de vendas
-E clica em “Novo”
-E seleciona cliente, funcionário e data
-E insere produtos com quantidade e preço
-QUANDO clicar em “Finalizar” e selecionar pagamento
-ENTÃO a venda deve ser registrada no Livro Caixa
-Critérios de aceitação
-Venda registrada e estoque atualizado.
-Teste passou com sucesso.
-Caso de Teste 02: Tentativa de vender produto sem estoque.
+DADO que o usuário gera a compra
+QUANDO sair da tela sem mudar o status para CONFIRMADA
+ENTÃO a compra deve ficar com status “PENDENTE” e sem afetar o estoque.
+Critérios de Aceitação
+
+Estoque não alterado.
+
+-------------------------------------------
+✅ CENÁRIO 02 – PROCESSAMENTO DE VENDA (PDV)
+-------------------------------------------
+Caso de Teste 01: Venda completa com sucesso
 ID	Descrição
-C02-CT02	O sistema deve impedir venda de produtos com estoque zerado.
+C02-CT01	Venda registrada, estoque reduzido e caixa alimentado.
 Pré-condições
-Produto com quantidade = 0 no estoque.
+
+Cliente, funcionário e produtos cadastrados.
+
+Produto com estoque suficiente.
+
 Passos
-DADO que o usuário tenta inserir um produto sem estoque
-QUANDO selecionar a quantidade
-ENTÃO o sistema deve exibir “Estoque insuficiente”
-Critérios de aceitação
-O produto não deve ser incluído na venda.
-Teste passou com sucesso.
-Caso de Teste 03: Aplicar desconto total quando já existe desconto por item.
-ID	Descrição
-C02-CT03	O sistema deve bloquear desconto geral quando já há desconto por item.
-Pré-condições
-Venda contendo ao menos um item com desconto.
 Passos
-DADO que um item da venda possui desconto individual
-QUANDO o usuário tentar aplicar desconto total
-ENTÃO o sistema deve exibir alerta e impedir a ação
-Critérios de aceitação
-Desconto total deve ser bloqueado.
-Teste passou com sucesso.
-Caso de Teste 04: Finalização da venda sem selecionar tipo de documento.
+DADO que o usuário clica em “Novo” na tela de vendas
+E escolhe cliente, funcionário e data
+E insere produtos
+QUANDO finalizar e salvar
+ENTÃO a venda deve aparecer no Livro Caixa.
+Critérios de Aceitação
+
+Estoque atualizado.
+
+Caixa alimentado.
+
+Caso de Teste 02: Produto sem estoque
 ID	Descrição
-C02-CT04	O sistema deve impedir finalização da venda sem informar tipo de pagamento.
+C02-CT02	Sistema deve impedir venda sem estoque.
 Pré-condições
-Venda iniciada e pronta para finalização.
+
+Produto com quantidade = 0.
+
 Passos
-DADO que o usuário tenta finalizar a venda
-QUANDO clicar em “Salvar” sem selecionar tipo de documento
-ENTÃO o sistema deve exibir uma mensagem de erro
-Critérios de aceitação
-A venda só deve ser finalizada após o preenchimento correto.
-Teste passou com sucesso.
-# 🟦 CENÁRIO 03: Compra por Fornecedor
-Caso de Teste 01: Realizar compra completa com entrada no estoque.
-ID	Descrição
-C03-CT01	Registrar compra, finalizar e atualizar estoque.
-Pré-condições
-Fornecedor e produtos devem estar cadastrados.
 Passos
-DADO que o usuário cria uma nova compra
-E informa fornecedor, condição e data
-E insere produtos com quantidade, frete e desconto
-QUANDO clicar em “Finalizar”
-ENTÃO o estoque deve ser atualizado após a confirmação
-Critérios de aceitação
-Compra confirmada e estoque atualizado.
-Teste passou com sucesso.
-Caso de Teste 02: Tentativa de criar compra sem fornecedor.
+DADO que o usuário tenta incluir o produto
+QUANDO selecionar quantidade
+ENTÃO deve exibir mensagem “Estoque insuficiente”.
+Critérios de Aceitação
+
+Produto não deve entrar na venda.
+
+Caso de Teste 03: Desconto total bloqueado quando há desconto por item
 ID	Descrição
-C03-CT02	O sistema deve impedir compra sem fornecedor.
+C02-CT03	Sistema não deve permitir desconto duplo.
 Pré-condições
+
+Venda com desconto individual por item.
+
+Passos
+Passos
+DADO que a venda possui produto com desconto
+QUANDO tentar aplicar desconto geral
+ENTÃO deve bloquear com alerta.
+Critérios de Aceitação
+
+Desconto total bloqueado.
+
+Caso de Teste 04: Finalizar venda sem selecionar tipo de documento
+ID	Descrição
+C02-CT04	Sistema deve impedir finalização sem forma de pagamento.
+Pré-condições
+
+Venda pronta para finalizar.
+
+Passos
+Passos
+DADO que o usuário está na tela final
+QUANDO clicar em “Salvar” sem escolher tipo de documento
+ENTÃO deve exibir erro.
+Critérios de Aceitação
+
+Finalização bloqueada.
+
+-------------------------------------------
+✅ CENÁRIO 03 – COMPRA POR FORNECEDOR
+-------------------------------------------
+Caso de Teste 01: Compra concluída com sucesso
+ID	Descrição
+C03-CT01	Compra lançada, estoque atualizado e caixa alimentado.
+Pré-condições
+
+Fornecedor cadastrado.
+
+Produto cadastrado.
+
+Passos
+Passos
+DADO que o usuário cria nova compra
+E adiciona produtos
+QUANDO finalizar compra
+ENTÃO estoque deve ser alimentado.
+Critérios de Aceitação
+
+Compra CONFIRMADA.
+
+Caso de Teste 02: Fornecedor inexistente
+ID	Descrição
+C03-CT02	Deve impedir compra sem fornecedor.
+Pré-condições
+
 Nenhuma.
+
 Passos
-DADO que o usuário tenta criar uma compra
-QUANDO clicar em “Salvar” sem informar fornecedor
-ENTÃO o sistema deve exibir erro de campo obrigatório
-Critérios de aceitação
-A compra não deve ser criada.
-Teste passou com sucesso.
-Caso de Teste 03: Tentativa de inserir tipo de documento inválido para compra a prazo.
-ID	Descrição
-C03-CT03	O sistema deve impedir tipos de pagamento que alimentam caixa em compras a prazo.
-Pré-condições
-Compra registrada como “A Prazo”.
 Passos
-DADO que o usuário tenta inserir tipo de documento inválido
-QUANDO selecionar um documento que alimenta caixa
-ENTÃO deve aparecer alerta e bloquear a ação
-Critérios de aceitação
-Bloqueio da seleção inadequada.
-Teste passou com sucesso.
-# 🟦 CENÁRIO 04: Gestão de Clientes
-Caso de Teste 01: Cadastro de cliente Pessoa Física com sucesso.
-ID	Descrição
-C04-CT01	Realizar cadastro simples de cliente Pessoa Física.
-Pré-condições
-Nenhuma.
-Passos
-DADO que o usuário clica em “Novo”
-E preenche Nome, Tipo, CEP e Endereço
+DADO que usuário tenta criar compra sem fornecedor
 QUANDO clicar em “Salvar”
-ENTÃO o cliente deve aparecer na listagem
-Critérios de aceitação
-Cadastro salvo com sucesso.
-Teste passou com sucesso.
-Caso de Teste 02: Tentativa de cadastrar cliente com campos obrigatórios vazios.
+ENTÃO sistema deve bloquear.
+Critérios de Aceitação
+
+Mensagem “Fornecedor obrigatório”.
+
+Caso de Teste 03: Tipo de documento inválido para compra a prazo
 ID	Descrição
-C04-CT02	O sistema deve bloquear cadastro incompleto.
+C03-CT03	Sistema deve recusar documento que alimenta caixa.
 Pré-condições
+
+Compra marcada como “A Prazo”.
+
+Passos
+Passos
+DADO que o usuário tenta inserir tipo de documento que alimenta caixa
+QUANDO selecionar a opção proibida
+ENTÃO deve exibir alerta.
+Critérios de Aceitação
+
+Documento não deve ser aceito.
+
+-------------------------------------------
+✅ CENÁRIO 04 – GESTÃO DE CLIENTES
+-------------------------------------------
+Caso de Teste 01: Cadastro de cliente PF com sucesso
+ID	Descrição
+C04-CT01	Cadastro básico deve ser salvo corretamente.
+Pré-condições
+
 Nenhuma.
+
 Passos
-DADO que o usuário deixa Nome ou CEP em branco
+Passos
+DADO que usuário clica em “Novo”
+E preenche os campos obrigatórios
+QUANDO clicar em Salvar
+ENTÃO cliente deve aparecer na lista.
+Critérios de Aceitação
+
+Cadastro salvo.
+
+Caso de Teste 02: Tentativa de salvar cliente sem campos obrigatórios
+ID	Descrição
+C04-CT02	Sistema deve impedir cadastro incompleto.
+Pré-condições
+
+Nenhuma.
+
+Passos
+Passos
+DADO que o usuário deixa Nome ou CEP vazio
 QUANDO tentar salvar
-ENTÃO o sistema deve exibir mensagem de erro
-Critérios de aceitação
-Cadastro não deve ser realizado.
-Teste passou com sucesso.
-Caso de Teste 03: Venda acima do limite de crédito.
+ENTÃO deve exibir alerta.
+Critérios de Aceitação
+
+Cadastro bloqueado.
+
+Caso de Teste 03: Venda acima do limite de crédito
 ID	Descrição
-C04-CT03	Sistema deve alertar, mas permitir continuar via Contas a Receber.
+C04-CT03	Sistema alerta e redireciona para Contas a Receber.
 Pré-condições
-Cliente com limite de crédito ativo.
+
+Cliente com limite de crédito.
+
 Passos
-DADO que o cliente possui limite de crédito definido
+Passos
+DADO que o cliente tem limite de R$100
 QUANDO a venda ultrapassar esse valor
-ENTÃO deve exibir alerta e abrir fluxo de contas a receber
-Critérios de aceitação
-Venda pode prosseguir após confirmação.
-Teste passou com sucesso.
-Caso de Teste 04: Cadastro de dependente corretamente.
+ENTÃO sistema alerta e abre fluxo de contas a receber.
+Critérios de Aceitação
+
+Alerta exibido.
+
+Venda permitida após confirmação.
+
+Caso de Teste 04: Cadastrar dependente corretamente
 ID	Descrição
-C04-CT04	Usuário deve conseguir vincular dependentes a um cliente.
+C04-CT04	Dependente deve ser vinculado ao cliente.
 Pré-condições
+
 Cliente principal já cadastrado.
+
 Passos
-DADO que o usuário acessa a aba Dependentes
-QUANDO clicar em “Novo” e selecionar o dependente
-ENTÃO o dependente deve aparecer vinculado na lista
-Critérios de aceitação
-Dependente vinculado com sucesso.
-Teste passou com sucesso.
-# 🟦 CENÁRIO 05: Fechamento de Caixa
-Caso de Teste 01: Fechar caixa com sucesso.
+Passos
+DADO que usuário acessa aba Dependentes
+E clica em “Novo”
+QUANDO selecionar cliente dependente
+ENTÃO ele deve ser vinculado.
+Critérios de Aceitação
+
+Dependente aparece listado.
+
+-------------------------------------------
+✅ CENÁRIO 05 – FECHAMENTO DE CAIXA
+-------------------------------------------
+Caso de Teste 01: Fechar caixa com sucesso
 ID	Descrição
-C05-CT01	O fechamento do caixa deve ser registrado corretamente.
+C05-CT01	Caixa do dia fechado e registrado.
 Pré-condições
-Deve haver ao menos uma venda no dia.
+
+Haver pelo menos uma venda no dia.
+
 Passos
-DADO que o usuário acessa o Livro Caixa
+Passos
+DADO que o usuário abre o Livro Caixa
 QUANDO clicar em “Fechar Caixa”
-ENTÃO o caixa deve ser finalizado e nenhuma nova ação permitida
-Critérios de aceitação
-Caixa encerrado e bloqueado para movimentações.
-Teste passou com sucesso.
-Caso de Teste 02: Tentativa de fechar caixa sem vendas.
+ENTÃO o caixa deve ser finalizado.
+Critérios de Aceitação
+
+O dia fica bloqueado para novas movimentações.
+
+Caso de Teste 02: Tentar fechar caixa sem vendas no dia
 ID	Descrição
-C05-CT02	O sistema deve impedir fechamento sem movimentações.
+C05-CT02	Sistema deve impedir fechamento vazio.
 Pré-condições
-Não existe venda registrada no dia.
+
+Nenhuma venda registrada.
+
 Passos
-DADO que o usuário tenta fechar o caixa
-QUANDO clicar em “Fechar Caixa”
-ENTÃO deve ser exibido aviso de ausência de movimentações
-Critérios de aceitação
-Fechamento deve ser bloqueado.
-Teste passou com sucesso.
-Caso de Teste 03: Realizar retirada de valores do caixa.
+Passos
+DADO que usuário tenta fechar caixa
+QUANDO clicar em Fechar
+ENTÃO deve exibir alerta de “nenhuma movimentação”.
+Critérios de Aceitação
+
+Bloqueio do fechamento.
+
+Caso de Teste 03: Retirada de valores com sucesso
 ID	Descrição
-C05-CT03	Registrar retirada de valores com sucesso.
+C05-CT03	Retirada registrada e visível no livro caixa.
 Pré-condições
-Caixa deve estar aberto.
+
+Caixa aberto.
+
+Passos
 Passos
 DADO que o usuário acessa “Retirar Valores”
-E clica em “Novo”
+E clica em Novo
 QUANDO preencher Valor, Tipo de Documento e Histórico
-ENTÃO a retirada deve ser exibida no Livro Caixa
-Critérios de aceitação
-Registro correto da retirada.
-Teste passou com sucesso.
-Caso de Teste 04: Tentativa de retirada sem preencher campos obrigatórios.
+ENTÃO retirada deve aparecer registrada.
+Critérios de Aceitação
+
+Entrada listada corretamente.
+
+Caso de Teste 04: Retirada sem preencher campos obrigatórios
 ID	Descrição
-C05-CT04	O sistema deve bloquear retirada incompleta.
+C05-CT04	Sistema deve bloquear retirada incompleta.
 Pré-condições
+
 Nenhuma.
+
 Passos
-DADO que o usuário tenta registrar retirada
-E deixa Valor ou Tipo de Documento em branco
-QUANDO clicar em “Salvar”
-ENTÃO deve ser exibida mensagem de erro
-Critérios de aceitação
-O registro não pode ser efetuado.
-Teste passou com sucesso.
+Passos
+DADO que o usuário deixa Valor ou Tipo de Documento em branco
+QUANDO tentar salvar
+ENTÃO deve exibir alerta de obrigatoriedade.
+Critérios de Aceitação
+
+Retirada não registrada.
