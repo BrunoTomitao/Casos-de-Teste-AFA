@@ -39,27 +39,28 @@ DADO que o usuário acessa a tela de importação
 E seleciona um XML corrompido
 QUANDO clicar em “Importar XML”
 ENTÃO deve aparecer erro e bloqueio da ação.
-Critérios de Aceitação
 
-Mensagem clara de erro.
-
-Não deve permitir gerar compra.
+| **Critérios de aceitação**                                      |
+| :------------------------------------------------------------ |
+|Mensagem clara de erro.|
+|Não deve permitir gerar compra.|
 
 ### Caso de Teste 03: Falta de preenchimento obrigatório
 | ID       | Descrição                                                        |
 | ------- | ---------------------------------------------------------------- |
 |C01-CT03	 | Bloqueio da importação sem CFOP ou Grupo.|
-| --------| -------------------|
-| **Pré-condições**                                             |
-| --------| - Nenhuma.|
 
-| ------- | ---------------------------------------------------------------- |
+| **Pré-condições**                                             |
+| :------------------------------------------------------------ |
+| - Nenhuma.|
+
 | **Passos**                                                        |
-| ------- | ---------------------------------------------------------------- |
+| :------------------------------------------------------------ |
 DADO que o usuário está na tela
 E deixa CFOP ou Grupo em branco
 QUANDO tentar importar XML
 ENTÃO deve exibir mensagens de “campo obrigatório”.
+
 Critérios de Aceitação
 
 Campos obrigatórios validados.
