@@ -69,6 +69,7 @@ ENTÃO deve exibir mensagens de “campo obrigatório”.
 | ID       | Descrição                                                        |
 | ------- | ---------------------------------------------------------------- |
 |C01-CT04	| Compra deve permanecer pendente sem confirmação.|
+
 | **Pré-condições**                                             |
 | :------------------------------------------------------------ |
 | - XML válido importado.|
