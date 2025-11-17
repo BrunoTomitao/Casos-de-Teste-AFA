@@ -2,15 +2,15 @@
 ## ✅ CENÁRIO 01 – INVENTÁRIO DE ESTOQUE
 -------------------------------------------
 ### Caso de Teste 01: Importar XML válido e gerar compra
-| ID       | Descrição                                                        |
+| ID       | Descrição                                                       |
 | ------- | ---------------------------------------------------------------- |
-|C01-CT01	 | Importação de XML válido alimenta estoque corretamente.|
+|C01-CT01	 | Importação de XML válido alimenta estoque corretamente.         |
 
 | **Pré-condições**                                             |
-| ------- | - XML válido.|
-| ------- | - Produtos existentes na nota.|
+| ------- | - XML válido.                                       |
+| ------- | - Produtos existentes na nota.                      |
 
-| **Passos**                                                        |
+| **Passos**                                                                 |
 | ------- | ---------------------------------------------------------------- |
 DADO que o usuário acessa Pedidos > Importar XML de Compra
 E preenche CFOP, Grupo e ST Entrada
