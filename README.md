@@ -28,10 +28,8 @@ Produtos lançados no estoque.
 | :------- | :---------------------------------------------------------------- |
 |C01-CT02	 | Sistema deve recusar XML inválido.|
 | :------------------------------------------------------------ |
-
 | **Pré-condições**                                             |
-
-XML com estrutura incorreta.
+|:---------|XML com estrutura incorreta.|
 
 Passos
 Passos
@@ -48,10 +46,10 @@ Não deve permitir gerar compra.
 ### Caso de Teste 03: Falta de preenchimento obrigatório
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C01-CT03	Bloqueio da importação sem CFOP ou Grupo.|
-Pré-condições
-
-Nenhuma.
+|C01-CT03	 | Bloqueio da importação sem CFOP ou Grupo.|
+| :--------| :-------------------|
+| **Pré-condições**                                             |
+| :--------| Nenhuma.|
 
 Passos
 Passos
