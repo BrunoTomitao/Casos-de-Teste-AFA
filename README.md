@@ -1,14 +1,14 @@
 -------------------------------------------
-✅ CENÁRIO 01 – INVENTÁRIO DE ESTOQUE
+## ✅ CENÁRIO 01 – INVENTÁRIO DE ESTOQUE
 -------------------------------------------
-Caso de Teste 01: Importar XML válido e gerar compra
-ID	Descrição
-C01-CT01	Importação de XML válido alimenta estoque corretamente.
-Pré-condições
-
-XML válido.
-
-Produtos existentes na nota.
+### Caso de Teste 01: Importar XML válido e gerar compra
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C01-CT01	Importação de XML válido alimenta estoque corretamente.|
+| **Pré-condições**                                             |
+| :------------------------------------------------------------ |
+| - XML válido.|
+| - Produtos existentes na nota.|
 
 Passos
 Passos
@@ -23,9 +23,10 @@ Compra confirmada.
 
 Produtos lançados no estoque.
 
-Caso de Teste 02: Importar XML inválido
-ID	Descrição
-C01-CT02	Sistema deve recusar XML inválido.
+### Caso de Teste 02: Importar XML inválido
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C01-CT02	Sistema deve recusar XML inválido.|
 Pré-condições
 
 XML com estrutura incorreta.
@@ -42,9 +43,10 @@ Mensagem clara de erro.
 
 Não deve permitir gerar compra.
 
-Caso de Teste 03: Falta de preenchimento obrigatório
-ID	Descrição
-C01-CT03	Bloqueio da importação sem CFOP ou Grupo.
+### Caso de Teste 03: Falta de preenchimento obrigatório
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C01-CT03	Bloqueio da importação sem CFOP ou Grupo.|
 Pré-condições
 
 Nenhuma.
@@ -59,9 +61,10 @@ Critérios de Aceitação
 
 Campos obrigatórios validados.
 
-Caso de Teste 04: Gerar compra mas não confirmar entrada
-ID	Descrição
-C01-CT04	Compra deve permanecer pendente sem confirmação.
+### Caso de Teste 04: Gerar compra mas não confirmar entrada
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C01-CT04	Compra deve permanecer pendente sem confirmação.|
 Pré-condições
 
 XML válido importado.
@@ -76,11 +79,12 @@ Critérios de Aceitação
 Estoque não alterado.
 
 -------------------------------------------
-✅ CENÁRIO 02 – PROCESSAMENTO DE VENDA (PDV)
+## ✅ CENÁRIO 02 – PROCESSAMENTO DE VENDA (PDV)
 -------------------------------------------
-Caso de Teste 01: Venda completa com sucesso
-ID	Descrição
-C02-CT01	Venda registrada, estoque reduzido e caixa alimentado.
+### Caso de Teste 01: Venda completa com sucesso
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C02-CT01	Venda registrada, estoque reduzido e caixa alimentado.|
 Pré-condições
 
 Cliente, funcionário e produtos cadastrados.
@@ -100,9 +104,10 @@ Estoque atualizado.
 
 Caixa alimentado.
 
-Caso de Teste 02: Produto sem estoque
-ID	Descrição
-C02-CT02	Sistema deve impedir venda sem estoque.
+### Caso de Teste 02: Produto sem estoque
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C02-CT02	Sistema deve impedir venda sem estoque.|
 Pré-condições
 
 Produto com quantidade = 0.
@@ -116,9 +121,10 @@ Critérios de Aceitação
 
 Produto não deve entrar na venda.
 
-Caso de Teste 03: Desconto total bloqueado quando há desconto por item
-ID	Descrição
-C02-CT03	Sistema não deve permitir desconto duplo.
+### Caso de Teste 03: Desconto total bloqueado quando há desconto por item
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C02-CT03	Sistema não deve permitir desconto duplo.|
 Pré-condições
 
 Venda com desconto individual por item.
@@ -132,9 +138,10 @@ Critérios de Aceitação
 
 Desconto total bloqueado.
 
-Caso de Teste 04: Finalizar venda sem selecionar tipo de documento
-ID	Descrição
-C02-CT04	Sistema deve impedir finalização sem forma de pagamento.
+### Caso de Teste 04: Finalizar venda sem selecionar tipo de documento
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C02-CT04	Sistema deve impedir finalização sem forma de pagamento.|
 Pré-condições
 
 Venda pronta para finalizar.
@@ -149,11 +156,12 @@ Critérios de Aceitação
 Finalização bloqueada.
 
 -------------------------------------------
-✅ CENÁRIO 03 – COMPRA POR FORNECEDOR
+## ✅ CENÁRIO 03 – COMPRA POR FORNECEDOR
 -------------------------------------------
-Caso de Teste 01: Compra concluída com sucesso
-ID	Descrição
-C03-CT01	Compra lançada, estoque atualizado e caixa alimentado.
+### Caso de Teste 01: Compra concluída com sucesso
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C03-CT01	Compra lançada, estoque atualizado e caixa alimentado.|
 Pré-condições
 
 Fornecedor cadastrado.
@@ -170,9 +178,10 @@ Critérios de Aceitação
 
 Compra CONFIRMADA.
 
-Caso de Teste 02: Fornecedor inexistente
-ID	Descrição
-C03-CT02	Deve impedir compra sem fornecedor.
+### Caso de Teste 02: Fornecedor inexistente
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C03-CT02	Deve impedir compra sem fornecedor.|
 Pré-condições
 
 Nenhuma.
@@ -186,9 +195,10 @@ Critérios de Aceitação
 
 Mensagem “Fornecedor obrigatório”.
 
-Caso de Teste 03: Tipo de documento inválido para compra a prazo
-ID	Descrição
-C03-CT03	Sistema deve recusar documento que alimenta caixa.
+### Caso de Teste 03: Tipo de documento inválido para compra a prazo
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C03-CT03	Sistema deve recusar documento que alimenta caixa.|
 Pré-condições
 
 Compra marcada como “A Prazo”.
@@ -203,11 +213,12 @@ Critérios de Aceitação
 Documento não deve ser aceito.
 
 -------------------------------------------
-✅ CENÁRIO 04 – GESTÃO DE CLIENTES
+## ✅ CENÁRIO 04 – GESTÃO DE CLIENTES
 -------------------------------------------
-Caso de Teste 01: Cadastro de cliente PF com sucesso
-ID	Descrição
-C04-CT01	Cadastro básico deve ser salvo corretamente.
+### Caso de Teste 01: Cadastro de cliente PF com sucesso
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C04-CT01	Cadastro básico deve ser salvo corretamente.|
 Pré-condições
 
 Nenhuma.
@@ -222,9 +233,10 @@ Critérios de Aceitação
 
 Cadastro salvo.
 
-Caso de Teste 02: Tentativa de salvar cliente sem campos obrigatórios
-ID	Descrição
-C04-CT02	Sistema deve impedir cadastro incompleto.
+### Caso de Teste 02: Tentativa de salvar cliente sem campos obrigatórios
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C04-CT02	Sistema deve impedir cadastro incompleto.|
 Pré-condições
 
 Nenhuma.
@@ -238,9 +250,10 @@ Critérios de Aceitação
 
 Cadastro bloqueado.
 
-Caso de Teste 03: Venda acima do limite de crédito
-ID	Descrição
-C04-CT03	Sistema alerta e redireciona para Contas a Receber.
+### Caso de Teste 03: Venda acima do limite de crédito
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C04-CT03	Sistema alerta e redireciona para Contas a Receber.|
 Pré-condições
 
 Cliente com limite de crédito.
@@ -256,9 +269,10 @@ Alerta exibido.
 
 Venda permitida após confirmação.
 
-Caso de Teste 04: Cadastrar dependente corretamente
-ID	Descrição
-C04-CT04	Dependente deve ser vinculado ao cliente.
+### Caso de Teste 04: Cadastrar dependente corretamente
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C04-CT04	Dependente deve ser vinculado ao cliente.|
 Pré-condições
 
 Cliente principal já cadastrado.
@@ -274,11 +288,12 @@ Critérios de Aceitação
 Dependente aparece listado.
 
 -------------------------------------------
-✅ CENÁRIO 05 – FECHAMENTO DE CAIXA
+## ✅ CENÁRIO 05 – FECHAMENTO DE CAIXA
 -------------------------------------------
-Caso de Teste 01: Fechar caixa com sucesso
-ID	Descrição
-C05-CT01	Caixa do dia fechado e registrado.
+### Caso de Teste 01: Fechar caixa com sucesso
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C05-CT01	Caixa do dia fechado e registrado.|
 Pré-condições
 
 Haver pelo menos uma venda no dia.
@@ -292,9 +307,10 @@ Critérios de Aceitação
 
 O dia fica bloqueado para novas movimentações.
 
-Caso de Teste 02: Tentar fechar caixa sem vendas no dia
-ID	Descrição
-C05-CT02	Sistema deve impedir fechamento vazio.
+### Caso de Teste 02: Tentar fechar caixa sem vendas no dia
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C05-CT02	Sistema deve impedir fechamento vazio.|
 Pré-condições
 
 Nenhuma venda registrada.
@@ -308,9 +324,10 @@ Critérios de Aceitação
 
 Bloqueio do fechamento.
 
-Caso de Teste 03: Retirada de valores com sucesso
-ID	Descrição
-C05-CT03	Retirada registrada e visível no livro caixa.
+### Caso de Teste 03: Retirada de valores com sucesso
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C05-CT03	Retirada registrada e visível no livro caixa.|
 Pré-condições
 
 Caixa aberto.
@@ -325,9 +342,10 @@ Critérios de Aceitação
 
 Entrada listada corretamente.
 
-Caso de Teste 04: Retirada sem preencher campos obrigatórios
-ID	Descrição
-C05-CT04	Sistema deve bloquear retirada incompleta.
+### Caso de Teste 04: Retirada sem preencher campos obrigatórios
+| ID       | Descrição                                                        |
+| :------- | :---------------------------------------------------------------- |
+|C05-CT04	Sistema deve bloquear retirada incompleta.|
 Pré-condições
 
 Nenhuma.
