@@ -235,78 +235,81 @@ ENTÃO deve exibir alerta.
 ### Caso de Teste 01: Cadastro de cliente PF com sucesso
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C04-CT01	Cadastro básico deve ser salvo corretamente.|
+|C04-CT01	 | Cadastro básico deve ser salvo corretamente.|
+
 | **Pré-condições**                                             |
+| :------------------------------------------------------------ |
+|Nenhuma.|
 
-Nenhuma.
-
-| ------- | ---------------------------------------------------------------- |
-| **Passos**                                                        |
-| ------- | ---------------------------------------------------------------- |
+| **Passos*                                             |
+| :------------------------------------------------------------ |
 DADO que usuário clica em “Novo”
 E preenche os campos obrigatórios
 QUANDO clicar em Salvar
 ENTÃO cliente deve aparecer na lista.
-Critérios de Aceitação
 
-Cadastro salvo.
+| **Critérios de Aceitação**                                             |
+| :------------------------------------------------------------ |
+|Cadastro salvo.|
 
 ### Caso de Teste 02: Tentativa de salvar cliente sem campos obrigatórios
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C04-CT02	Sistema deve impedir cadastro incompleto.|
+|C04-CT02	 | Sistema deve impedir cadastro incompleto.|
+
 | **Pré-condições**                                             |
+| :------------------------------------------------------------ |
+|Nenhuma.|
 
-Nenhuma.
-
-| ------- | ---------------------------------------------------------------- |
 | **Passos**                                                        |
-| ------- | ---------------------------------------------------------------- |
+| :------------------------------------------------------------ |
 DADO que o usuário deixa Nome ou CEP vazio
 QUANDO tentar salvar
 ENTÃO deve exibir alerta.
-Critérios de Aceitação
 
-Cadastro bloqueado.
+| **Critérios de Aceitação**                                             |
+| :------------------------------------------------------------ |
+|Cadastro bloqueado.|
 
 ### Caso de Teste 03: Venda acima do limite de crédito
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C04-CT03	Sistema alerta e redireciona para Contas a Receber.|
+|C04-CT03	 | Sistema alerta e redireciona para Contas a Receber.|
+
 | **Pré-condições**                                             |
+| :------------------------------------------------------------ |
+|Cliente com limite de crédito.|
 
-Cliente com limite de crédito.
-
-| ------- | ---------------------------------------------------------------- |
-| **Passos**                                                        |
-| ------- | ---------------------------------------------------------------- |
+| **Passos**                                             |
+| :------------------------------------------------------------ |
 DADO que o cliente tem limite de R$100
 QUANDO a venda ultrapassar esse valor
 ENTÃO sistema alerta e abre fluxo de contas a receber.
-Critérios de Aceitação
 
-Alerta exibido.
-
-Venda permitida após confirmação.
+| **Critérios de Aceitação**                                             |
+| :------------------------------------------------------------ |
+|Alerta exibido.|
+|Venda permitida após confirmação.|
 
 ### Caso de Teste 04: Cadastrar dependente corretamente
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C04-CT04	Dependente deve ser vinculado ao cliente.|
+|C04-CT04	 | Dependente deve ser vinculado ao cliente.|
+
 | **Pré-condições**                                             |
+| :------------------------------------------------------------ |
+|Cliente principal já cadastrado.|
 
-Cliente principal já cadastrado.
-
-| ------- | ---------------------------------------------------------------- |
-| **Passos**                                                        |
-| ------- | ---------------------------------------------------------------- |
+| **Passos**                                             |
+| :------------------------------------------------------------ |
 DADO que usuário acessa aba Dependentes
 E clica em “Novo”
 QUANDO selecionar cliente dependente
 ENTÃO ele deve ser vinculado.
-Critérios de Aceitação
 
-Dependente aparece listado.
+| **Critérios de Aceitação**                                             |
+| :------------------------------------------------------------ |
+|Dependente aparece listado.|
 
 -------------------------------------------
 ## ✅ CENÁRIO 05 – FECHAMENTO DE CAIXA
