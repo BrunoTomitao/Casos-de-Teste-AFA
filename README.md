@@ -125,25 +125,28 @@ DADO que o usuário tenta incluir o produto
 QUANDO selecionar quantidade
 ENTÃO deve exibir mensagem “Estoque insuficiente”.
 
-Critérios de Aceitação
-
-Produto não deve entrar na venda.
+| **Critérios de Aceitação**                                             |
+| :------------------------------------------------------------ |
+|Produto não deve entrar na venda.|
 
 ### Caso de Teste 03: Desconto total bloqueado quando há desconto por item
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C02-CT03	Sistema não deve permitir desconto duplo.|
+|C02-CT03	 |Sistema não deve permitir desconto duplo.|
+
 | **Pré-condições**                                             |
+| :------------------------------------------------------------ |
+|Venda com desconto individual por item.|
 
-Venda com desconto individual por item.
-
-| ------- | ---------------------------------------------------------------- |
-| **Passos**                                                        |
-| ------- | ---------------------------------------------------------------- |
+| **Passos**                                             |
+| :------------------------------------------------------------ |
 DADO que a venda possui produto com desconto
 QUANDO tentar aplicar desconto geral
 ENTÃO deve bloquear com alerta.
+
 Critérios de Aceitação
+| **Critérios de Aceitação**                                             |
+| :------------------------------------------------------------ |
 
 Desconto total bloqueado.
 
