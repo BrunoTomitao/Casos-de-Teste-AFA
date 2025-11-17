@@ -10,8 +10,9 @@
 | ------- | - XML válido.|
 | ------- | - Produtos existentes na nota.|
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário acessa Pedidos > Importar XML de Compra
 E preenche CFOP, Grupo e ST Entrada
 E importa um XML válido
@@ -29,10 +30,11 @@ Produtos lançados no estoque.
 |C01-CT02	 | Sistema deve recusar XML inválido.|
 | ------- | ---------------------------------------------------------------- |
 | **Pré-condições**                                             |
-| ------- |XML com estrutura incorreta.|
+| ------- | - XML com estrutura incorreta.|
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário acessa a tela de importação
 E seleciona um XML corrompido
 QUANDO clicar em “Importar XML”
@@ -45,14 +47,15 @@ Não deve permitir gerar compra.
 
 ### Caso de Teste 03: Falta de preenchimento obrigatório
 | ID       | Descrição                                                        |
-| :------- | :---------------------------------------------------------------- |
+| ------- | ---------------------------------------------------------------- |
 |C01-CT03	 | Bloqueio da importação sem CFOP ou Grupo.|
-| :--------| :-------------------|
+| --------| -------------------|
 | **Pré-condições**                                             |
-| :--------| Nenhuma.|
+| --------| - Nenhuma.|
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário está na tela
 E deixa CFOP ou Grupo em branco
 QUANDO tentar importar XML
@@ -63,14 +66,15 @@ Campos obrigatórios validados.
 
 ### Caso de Teste 04: Gerar compra mas não confirmar entrada
 | ID       | Descrição                                                        |
-| :------- | :---------------------------------------------------------------- |
+| ------- | ---------------------------------------------------------------- |
 |C01-CT04	Compra deve permanecer pendente sem confirmação.|
-Pré-condições
+| **Pré-condições**                                             |
 
 XML válido importado.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário gera a compra
 QUANDO sair da tela sem mudar o status para CONFIRMADA
 ENTÃO a compra deve ficar com status “PENDENTE” e sem afetar o estoque.
@@ -85,14 +89,15 @@ Estoque não alterado.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C02-CT01	Venda registrada, estoque reduzido e caixa alimentado.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Cliente, funcionário e produtos cadastrados.
 
 Produto com estoque suficiente.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário clica em “Novo” na tela de vendas
 E escolhe cliente, funcionário e data
 E insere produtos
@@ -108,12 +113,13 @@ Caixa alimentado.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C02-CT02	Sistema deve impedir venda sem estoque.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Produto com quantidade = 0.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário tenta incluir o produto
 QUANDO selecionar quantidade
 ENTÃO deve exibir mensagem “Estoque insuficiente”.
@@ -125,12 +131,13 @@ Produto não deve entrar na venda.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C02-CT03	Sistema não deve permitir desconto duplo.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Venda com desconto individual por item.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que a venda possui produto com desconto
 QUANDO tentar aplicar desconto geral
 ENTÃO deve bloquear com alerta.
@@ -142,12 +149,13 @@ Desconto total bloqueado.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C02-CT04	Sistema deve impedir finalização sem forma de pagamento.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Venda pronta para finalizar.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário está na tela final
 QUANDO clicar em “Salvar” sem escolher tipo de documento
 ENTÃO deve exibir erro.
@@ -162,14 +170,15 @@ Finalização bloqueada.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C03-CT01	Compra lançada, estoque atualizado e caixa alimentado.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Fornecedor cadastrado.
 
 Produto cadastrado.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário cria nova compra
 E adiciona produtos
 QUANDO finalizar compra
@@ -182,12 +191,13 @@ Compra CONFIRMADA.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C03-CT02	Deve impedir compra sem fornecedor.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Nenhuma.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que usuário tenta criar compra sem fornecedor
 QUANDO clicar em “Salvar”
 ENTÃO sistema deve bloquear.
@@ -199,12 +209,13 @@ Mensagem “Fornecedor obrigatório”.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C03-CT03	Sistema deve recusar documento que alimenta caixa.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Compra marcada como “A Prazo”.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário tenta inserir tipo de documento que alimenta caixa
 QUANDO selecionar a opção proibida
 ENTÃO deve exibir alerta.
@@ -219,12 +230,13 @@ Documento não deve ser aceito.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C04-CT01	Cadastro básico deve ser salvo corretamente.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Nenhuma.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que usuário clica em “Novo”
 E preenche os campos obrigatórios
 QUANDO clicar em Salvar
@@ -237,12 +249,13 @@ Cadastro salvo.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C04-CT02	Sistema deve impedir cadastro incompleto.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Nenhuma.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário deixa Nome ou CEP vazio
 QUANDO tentar salvar
 ENTÃO deve exibir alerta.
@@ -254,12 +267,13 @@ Cadastro bloqueado.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C04-CT03	Sistema alerta e redireciona para Contas a Receber.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Cliente com limite de crédito.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o cliente tem limite de R$100
 QUANDO a venda ultrapassar esse valor
 ENTÃO sistema alerta e abre fluxo de contas a receber.
@@ -273,12 +287,13 @@ Venda permitida após confirmação.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C04-CT04	Dependente deve ser vinculado ao cliente.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Cliente principal já cadastrado.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que usuário acessa aba Dependentes
 E clica em “Novo”
 QUANDO selecionar cliente dependente
@@ -298,8 +313,9 @@ Pré-condições
 
 Haver pelo menos uma venda no dia.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário abre o Livro Caixa
 QUANDO clicar em “Fechar Caixa”
 ENTÃO o caixa deve ser finalizado.
@@ -311,12 +327,13 @@ O dia fica bloqueado para novas movimentações.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C05-CT02	Sistema deve impedir fechamento vazio.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Nenhuma venda registrada.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que usuário tenta fechar caixa
 QUANDO clicar em Fechar
 ENTÃO deve exibir alerta de “nenhuma movimentação”.
@@ -328,12 +345,13 @@ Bloqueio do fechamento.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C05-CT03	Retirada registrada e visível no livro caixa.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Caixa aberto.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário acessa “Retirar Valores”
 E clica em Novo
 QUANDO preencher Valor, Tipo de Documento e Histórico
@@ -346,12 +364,13 @@ Entrada listada corretamente.
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
 |C05-CT04	Sistema deve bloquear retirada incompleta.|
-Pré-condições
+| **Pré-condições**                                             |
 
 Nenhuma.
 
-Passos
-Passos
+| ------- | ---------------------------------------------------------------- |
+| **Passos**                                                        |
+| ------- | ---------------------------------------------------------------- |
 DADO que o usuário deixa Valor ou Tipo de Documento em branco
 QUANDO tentar salvar
 ENTÃO deve exibir alerta de obrigatoriedade.
