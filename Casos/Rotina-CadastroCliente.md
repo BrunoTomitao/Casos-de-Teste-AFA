@@ -70,7 +70,7 @@ ENTÃO sistema alerta e abre fluxo de contas a receber.
 
 | **Video**                                         |
 | :------------------------------------------------------------ |
-|[Video]()|
+|[Video](https://drive.google.com/file/d/1wZLye1cwhgE3KRpz719J5lfZsVdiFDvn/view?usp=drive_link)|
 
 ### Caso de Teste 04: Cadastrar dependente corretamente
 | ID       | Descrição                                                        |

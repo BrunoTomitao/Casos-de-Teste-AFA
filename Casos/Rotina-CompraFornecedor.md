@@ -69,4 +69,4 @@ ENTÃO deve exibir alerta.
 
 | **Video**                                         |
 | :------------------------------------------------------------ |
-|[Video]()|
+|[Video](https://drive.google.com/file/d/19a0APG0NYWyJFwtvoMqkpq_LXun1EHz7/view?usp=drive_link)|
