@@ -22,12 +22,12 @@ ENTÃO o caixa deve ser finalizado.
 
 | **Video**                                         |
 | :------------------------------------------------------------ |
-|[Video]()|
+|[Video](https://drive.google.com/file/d/1EqRbj1dYfjwWkRD4YJMZPMXzAfUdeVEA/view?usp=drive_link)|
 
 ### Caso de Teste 02: Tentar fechar caixa sem vendas no dia
 | ID       | Descrição                                                        |
 | :------- | :---------------------------------------------------------------- |
-|C05-CT02	 | Sistema deve impedir fechamento vazio.|
+|C05-CT02	 | Sistema deve permitir fechamento vazio.|
 
 | **Pré-condições**                                             |
 | :------------------------------------------------------------ |
@@ -37,15 +37,15 @@ ENTÃO o caixa deve ser finalizado.
 | :------------------------------------------------------------ |
 DADO que usuário tenta fechar caixa
 QUANDO clicar em Fechar
-ENTÃO deve exibir alerta de “nenhuma movimentação”.
+ENTÃO deve permitir fechar o caixa.
 
 | **Critérios de Aceitação**                                             |
 | :------------------------------------------------------------ |
-|Bloqueio do fechamento.|
+|permitir fechar.|
 
 | **Video**                                         |
 | :------------------------------------------------------------ |
-|[Video]()|
+|[Video](https://drive.google.com/file/d/1Td42s1ceNUtr8-TZi0JNNGBeACqNP8-D/view?usp=drive_link)|
 
 ### Caso de Teste 03: Retirada de valores com sucesso
 | ID       | Descrição                                                        |
@@ -60,7 +60,7 @@ ENTÃO deve exibir alerta de “nenhuma movimentação”.
 | :------------------------------------------------------------ |
 DADO que o usuário acessa “Retirar Valores”
 E clica em Novo
-QUANDO preencher Valor, Tipo de Documento e Histórico
+QUANDO preencher Valor e Histórico
 ENTÃO retirada deve aparecer registrada.
 
 | **Critérios de Aceitação**                                             |
@@ -69,7 +69,7 @@ ENTÃO retirada deve aparecer registrada.
 
 | **Video**                                         |
 | :------------------------------------------------------------ |
-|[Video]()|
+|[Video](https://drive.google.com/file/d/1FEhJ5eIBwrrfgFAR9ypVsj2U6iwzFW3V/view?usp=drive_link)|
 
 ### Caso de Teste 04: Retirada sem preencher campos obrigatórios
 | ID       | Descrição                                                        |
@@ -82,7 +82,7 @@ ENTÃO retirada deve aparecer registrada.
 
 | **Passos**                                             |
 | :------------------------------------------------------------ |
-DADO que o usuário deixa Valor ou Tipo de Documento em branco
+DADO que o usuário deixa historico sem nada
 QUANDO tentar salvar
 ENTÃO deve exibir alerta de obrigatoriedade.
 
@@ -92,4 +92,4 @@ ENTÃO deve exibir alerta de obrigatoriedade.
 
 | **Video**                                         |
 | :------------------------------------------------------------ |
-|[Video]()|
+|[Video](https://drive.google.com/file/d/1AQgFPL8m_BPdeFna5xlyBWzhY4uDRz8b/view?usp=drive_link)|
